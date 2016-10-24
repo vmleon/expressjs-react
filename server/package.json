@@ -4,7 +4,8 @@
   "description": "ExpressJS Server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app/index.js",
+    "dev": "nodemon app/index.js"
   },
   "keywords": [
     "expressjs",
@@ -14,5 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }
