@@ -22,7 +22,7 @@ app.get('/user/:username', function (req, res) {
   var username = req.params.username;
   var user = users.filter((user) => user.username === username);
   res.json(user);
-})
+});
 
 var server = app.listen(4000, () => {
   console.log('Server listening on port ', server.address().port);
