@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import User from './User';
 
 export default class Users extends Component {
   constructor(props) {
     super(props);
-    this.users = [];
-  }
-
-  componentDidMount() {
+    this.state = {
+      users: []
+    }
     this.getUsers();
   }
 
@@ -17,19 +17,19 @@ export default class Users extends Component {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         }),
-      mode: 'no-cors',
+      mode: 'cors',
       cache: 'no-cache'
     };
     fetch('http://localhost:4000/user', config)
       .then(response => response.json())
-      .then(data => this.users = data)
+      .then(data => this.setState({users: data}))
       .catch(error => console.error('Error fetching users', error));
   }
 
   render() {
     return (
       <div>
-        { this.users.map((user, id) => <p key={id}>{user.username}</p>) }
+        { this.state.users.map((user, id) => <User key={id} user={user}></User>) }
       </div>
     );
   }
