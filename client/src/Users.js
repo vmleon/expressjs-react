@@ -29,7 +29,10 @@ export default class Users extends Component {
   render() {
     return (
       <div>
-        { this.state.users.map((user, id) => <User key={id} user={user}></User>) }
+        { this.state.users
+            .map((user, id) =>
+              <User key={id} user={user}></User>
+            ) }
       </div>
     );
   }
