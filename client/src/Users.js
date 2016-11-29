@@ -7,6 +7,9 @@ export default class Users extends Component {
     this.state = {
       users: []
     }
+  }
+
+  componentDidMount() {
     this.getUsers();
   }
 
